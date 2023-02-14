@@ -1,25 +1,26 @@
-//BINARY SEARCh
 let recursiveFunction = function (arr, x, start, end) {
 	
-	
+	// Base Condition
 	if (start > end) return false;
 
-	
+	// Find the middle index
 	let mid=Math.floor((start + end)/2);
 
-	
+	// Compare mid with given key x
 	if (arr[mid]===x) return true;
 		
-	
+	// If element at mid is greater than x,
+	// search in the left half of mid
 	if(arr[mid] > x)
 		return recursiveFunction(arr, x, start, mid-1);
 	else
 
-		
+		// If element at mid is smaller than x,
+		// search in the right half of mid
 		return recursiveFunction(arr, x, mid+1, end);
 }
 
-
+// Driver code
 let arr = [1, 3, 5, 7, 8, 9];
 let x = 5;
 
@@ -32,38 +33,3 @@ x = 6;
 if (recursiveFunction(arr, x, 0, arr.length-1))
 	document.write("Element found!<br>");
 else document.write("Element not found!<br>");
-
-//evenish or oddish
-
-var a = 121;
-const evenishororoddish=(x)=>{
-    var ans = 0;
-    while(x>0){
-        var rem = x%10;
-        ans = ans+rem;
-        x=Math.round(x/10);
-    }
-    if(ans%2==0){
-        return "evenish";
-    }else{
-        return "oddish";
-    }
-}
-var ans = evenishororoddish(a);
-console.log(ans);
-
-
-//concatenate
-
-const arr=[[1],[2],[3]];
-
-const concatenate=(arr)=>{
-   var merge=[];
-for(var i=0;i<arr.length;i++)
-{
-merge=merge.concat(arr[i]);
-}
-console.log(merge);
-}
-
-concatenate(arr);
